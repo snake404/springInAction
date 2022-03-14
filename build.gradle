@@ -1,0 +1,35 @@
+buildscript{
+    ext{
+        springBootVersion = '2.3.0.RELEASE'
+    }
+    repositories{
+        mavenCentral()
+    }
+
+    dependencies{
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
+        classpath "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "1.0.9.RELEASE"
+}
+
+group 'mx.springaction'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '14'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
